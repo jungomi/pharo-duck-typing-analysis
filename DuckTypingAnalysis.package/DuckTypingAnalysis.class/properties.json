@@ -1,0 +1,14 @@
+{
+	"category" : "DuckTypingAnalysis",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"newMethodsDict" ],
+	"name" : "DuckTypingAnalysis",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
