@@ -1,4 +1,4 @@
-accessing
+filtering
 siblings
 	"Finds all siblings in the duplicate methods and groups them by their parent class under the 	 	 	corresponding method"
 	
