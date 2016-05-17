@@ -1,0 +1,3 @@
+accessing
+hasParent
+	^ parent isNotNil.

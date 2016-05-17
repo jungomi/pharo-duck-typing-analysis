@@ -1,0 +1,17 @@
+{
+	"category" : "CPA",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"parent",
+		"children",
+		"variables",
+		"name" ],
+	"name" : "CpaScope",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -1,0 +1,19 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"addChild:" : "MichaelJungo 5/17/2016 02:35",
+		"addVariable:at:" : "MichaelJungo 5/17/2016 02:46",
+		"childByName:" : "MichaelJungo 5/17/2016 02:41",
+		"children" : "MichaelJungo 5/17/2016 02:24",
+		"children:" : "MichaelJungo 5/17/2016 02:23",
+		"containsVariable:" : "MichaelJungo 5/17/2016 03:13",
+		"hasParent" : "MichaelJungo 5/17/2016 03:00",
+		"initialize" : "MichaelJungo 5/17/2016 02:56",
+		"name" : "MichaelJungo 5/17/2016 02:30",
+		"name:" : "MichaelJungo 5/17/2016 02:31",
+		"newChild:" : "MichaelJungo 5/17/2016 02:32",
+		"parent" : "MichaelJungo 5/17/2016 02:23",
+		"parent:" : "MichaelJungo 5/17/2016 02:23",
+		"variables" : "MichaelJungo 5/17/2016 02:44",
+		"variables:" : "MichaelJungo 5/17/2016 02:44" } }

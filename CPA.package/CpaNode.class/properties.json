@@ -1,0 +1,16 @@
+{
+	"category" : "CPA",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"incomingNodes",
+		"outgoingNodes",
+		"types" ],
+	"name" : "CpaNode",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -1,0 +1,15 @@
+{
+	"category" : "CPA",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"entryNode",
+		"templateList" ],
+	"name" : "CpaGraph",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

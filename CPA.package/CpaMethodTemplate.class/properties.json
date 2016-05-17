@@ -1,0 +1,14 @@
+{
+	"category" : "CPA",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"selectors" ],
+	"name" : "CpaMethodTemplate",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
