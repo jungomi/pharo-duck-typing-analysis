@@ -6,12 +6,9 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"graph",
-		"variables",
-		"globalScope",
-		"currentScope",
-		"repository" ],
-	"name" : "Cpa",
+		"templates",
+		"concretes" ],
+	"name" : "CpaMethodRepository",
 	"pools" : [
 		 ],
 	"super" : "Object",

@@ -1,0 +1,14 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"addConcrete:at:withSelector:" : "MichaelJungo 5/21/2016 22:40",
+		"addConcrete:atMethod:" : "MichaelJungo 5/21/2016 21:50",
+		"addTemplate:" : "MichaelJungo 5/21/2016 15:25",
+		"classExists:withSelector:" : "MichaelJungo 5/21/2016 22:06",
+		"classes" : "MichaelJungo 5/21/2016 22:12",
+		"concretes" : "MichaelJungo 5/21/2016 15:36",
+		"findSelector:" : "MichaelJungo 5/21/2016 15:26",
+		"initialize" : "MichaelJungo 5/21/2016 14:35",
+		"methodExists:" : "MichaelJungo 5/21/2016 22:05",
+		"templates" : "MichaelJungo 5/21/2016 14:33" } }

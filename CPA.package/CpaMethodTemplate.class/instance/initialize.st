@@ -1,4 +1,3 @@
-initialization
+accessing
 initialize
-	super initialize.
-	selectors := Set new
+	concretes := Set new.

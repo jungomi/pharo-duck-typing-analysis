@@ -6,7 +6,9 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"selectors" ],
+		"recipient",
+		"selector",
+		"concretes" ],
 	"name" : "CpaMethodTemplate",
 	"pools" : [
 		 ],

@@ -1,4 +1,4 @@
-as yet unclassified
+identification
 identifyReceiver: aNode
 	aNode class == RBVariableNode ifTrue: [ 
 		^ aNode name asClassIfAbsent: [

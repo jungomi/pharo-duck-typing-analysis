@@ -1,9 +1,14 @@
 accessing
-variableNodeByNameCreateIfAbsent: aString
+variableNodeByNameCreateIfAbsent: aName
 	"Returns the node in the graph by its name"
 	"TODO: come up with a less preposterous method name"
 	
-	(variables keys includes: aString) ifFalse: [
-		^ self newVariable: aString.
+	| scope |
+	scope := currentScope.
+	[ scope isNotNil ] whileTrue: [
+		(scope containsVariable: aName) ifTrue: [
+			^ scope variableNodeByName: aName.
+		].
+		scope := (scope parent).
 	].
-	^ variables at: aString
+	^ self newLocalVariable: aName.

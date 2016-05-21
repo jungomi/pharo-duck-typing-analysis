@@ -6,3 +6,4 @@ initialize
 	globalScope := CpaScope new.
 	globalScope name: #global.
 	currentScope := globalScope.
+	repository := CpaMethodRepository new.
