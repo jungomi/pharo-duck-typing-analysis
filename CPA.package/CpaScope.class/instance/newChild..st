@@ -4,7 +4,7 @@ newChild: aName
 	
 	| child |
 	child := CpaScope new.
-	child name: aName.
+	child id: aName.
 	child parent: self.
 	self addChild: child.
 	^ child

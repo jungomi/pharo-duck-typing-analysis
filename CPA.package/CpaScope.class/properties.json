@@ -9,7 +9,7 @@
 		"parent",
 		"children",
 		"variables",
-		"name" ],
+		"id" ],
 	"name" : "CpaScope",
 	"pools" : [
 		 ],

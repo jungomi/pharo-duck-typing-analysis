@@ -6,13 +6,10 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"graph",
-		"variables",
-		"globalScope",
-		"currentScope",
-		"repository",
-		"returnTypes" ],
-	"name" : "Cpa",
+		"types",
+		"hasValue",
+		"hasMultipleTypes" ],
+	"name" : "CpaReturn",
 	"pools" : [
 		 ],
 	"super" : "Object",
