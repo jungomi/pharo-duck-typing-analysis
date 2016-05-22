@@ -1,3 +1,3 @@
 as yet unclassified
-addConcrete: aDictionary
-	concretes add: aDictionary.
+addConcrete: aConcreteMethod
+	concretes add: aConcreteMethod.

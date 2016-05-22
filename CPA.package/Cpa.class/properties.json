@@ -11,7 +11,8 @@
 		"globalScope",
 		"currentScope",
 		"repository",
-		"returnTypes" ],
+		"returnTypes",
+		"instanceVariableTypes" ],
 	"name" : "Cpa",
 	"pools" : [
 		 ],

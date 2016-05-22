@@ -6,9 +6,11 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"arguments" ],
+		"template",
+		"selectorTypes",
+		"returnTypes" ],
 	"name" : "CpaConcreteMethod",
 	"pools" : [
 		 ],
-	"super" : "CpaMethodTemplate",
+	"super" : "Object",
 	"type" : "normal" }

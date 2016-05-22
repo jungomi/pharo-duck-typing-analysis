@@ -8,3 +8,4 @@ initialize
 	currentScope := globalScope.
 	repository := CpaMethodRepository new.
 	returnTypes := CpaReturn new.
+	instanceVariableTypes := Dictionary new.

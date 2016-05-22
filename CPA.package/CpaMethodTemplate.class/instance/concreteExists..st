@@ -1,3 +1,6 @@
 accessing
 concreteExists: aDictionary
-	^ concretes includes: aDictionary.
+	concretes do: [ :each |
+		each selectorTypes = aDictionary ifTrue: [ ^ true ].
+	].
+	^ false

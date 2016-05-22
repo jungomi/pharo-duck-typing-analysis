@@ -1,7 +1,12 @@
 {
 	"class" : {
-		 },
+		"new:" : "MichaelJungo 5/22/2016 17:40" },
 	"instance" : {
-		"arguments" : "MichaelJungo 5/21/2016 13:59",
-		"initializeSelector:with:" : "MichaelJungo 5/3/2016 02:09",
-		"typesOfSelector:" : "MichaelJungo 5/21/2016 14:05" } }
+		"recipient" : "MichaelJungo 5/22/2016 17:41",
+		"returnTypes" : "MichaelJungo 5/22/2016 17:38",
+		"returnTypes:" : "MichaelJungo 5/22/2016 17:38",
+		"selector" : "MichaelJungo 5/22/2016 17:42",
+		"selectorTypes" : "MichaelJungo 5/22/2016 17:38",
+		"selectorTypes:" : "MichaelJungo 5/22/2016 17:38",
+		"template" : "MichaelJungo 5/22/2016 17:37",
+		"template:" : "MichaelJungo 5/22/2016 17:37" } }

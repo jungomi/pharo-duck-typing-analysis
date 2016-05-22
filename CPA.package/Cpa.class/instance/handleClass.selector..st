@@ -1,6 +1,7 @@
 handling
 handleClass: aClass selector: aSelector
 	"TODO: refactor the duplicate parts and find initialize method that is called by new"
+	self addClassInstanceVariables: aClass.
 	aSelector == #new ifTrue: [
 		(aClass methodDict keys includes: #initialize) ifTrue: [
 			self newScope: aClass>>#initialize.
