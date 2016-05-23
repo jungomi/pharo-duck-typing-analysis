@@ -14,11 +14,17 @@ handleAssignment: anAssignmentNode
 		valueNode class == RBLiteralValueNode ifTrue: [
 			typeSet := Set new add: (valueNode value class); yourself.
 		] ifFalse: [
+			self halt.
 			self processNode: valueNode.
-			(returnTypes hasValue and: returnTypes hasMultipleTypes) ifTrue: [
-				typeSet := returnTypes types.
+			returnTypes hasValue ifTrue: [
+				returnTypes hasMultipleTypes ifTrue: [
+					typeSet := returnTypes types.
+				] ifFalse: [
+					typeSet := Set new add: (returnTypes types); yourself.
+				].
 			] ifFalse: [
-				typeSet := Set new add: (returnTypes types); yourself.
+				"FIME: seems unnecessarily stupid"
+				typeSet := Set new.
 			].
 		].
 	].

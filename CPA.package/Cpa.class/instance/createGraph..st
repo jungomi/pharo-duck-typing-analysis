@@ -1,4 +1,4 @@
-accessing
+adding
 createGraph: aString
 	"Creates a graph from a program given as string"
 	

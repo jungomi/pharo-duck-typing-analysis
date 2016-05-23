@@ -6,14 +6,9 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"graph",
-		"globalScope",
-		"currentScope",
-		"repository",
-		"returnTypes",
-		"instanceVariableTypes",
-		"ducks" ],
-	"name" : "Cpa",
+		"selector",
+		"types" ],
+	"name" : "CpaDuck",
 	"pools" : [
 		 ],
 	"super" : "Object",
