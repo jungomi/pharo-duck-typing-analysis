@@ -9,6 +9,6 @@ addConcrete: aConcreteMethod at: aClass withSelector: aSelector
 	] ifFalse: [
 		| temp |
 		temp := CpaMethodTemplate new: aClass withSelector: aSelector.
-		temp addConcrete: aConcreteMethod.
+		temp addConcreteMethod: aConcreteMethod.
 		temp at: method put: temp.
 	].

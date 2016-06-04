@@ -1,3 +1,3 @@
-as yet unclassified
+adding
 addDuck: aDuck
 	ducks add: aDuck.

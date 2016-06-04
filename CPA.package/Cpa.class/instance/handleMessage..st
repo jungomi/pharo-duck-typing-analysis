@@ -8,7 +8,7 @@ handleMessage: aMessageNode
 		"^ (Cpa class: receiver hasMethod: (aMessageNode selector)) ifTrue: [
 				self handleClass: receiver selector: (aMessageNode selector).
 			]."
-		^ self handleClass: receiver selector: (aMessageNode selector).
+		^ self handleClass: receiver selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
 	].
 	receiver class == Set ifTrue: [ | types duck |
 		types := Set new.
@@ -16,7 +16,7 @@ handleMessage: aMessageNode
 		receiver do: [ :each |
 			(Cpa class: each hasMethod: (aMessageNode selector)) ifTrue: [
 				duck addType: each.
-				self handleClass: each selector: (aMessageNode selector).
+				self handleClass: each selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
 				types add: (returnTypes types).
 			].
 		].
@@ -24,6 +24,6 @@ handleMessage: aMessageNode
 		^ types isNotEmpty ifTrue: [ returnTypes setTypes: types. ].
 	].
 	"Is this case even possible? If it is then it will probably fail anyways"
-	receiver isNotNil ifTrue: [
+	receiver ifNotNil: [
 		self processNode: (RBParser parseCompiledMethod: (receiver>>(aMessageNode selector))).
 	].

@@ -2,13 +2,15 @@
 	"class" : {
 		 },
 	"instance" : {
-		"addConcrete:at:withSelector:" : "MichaelJungo 5/22/2016 17:51",
-		"addConcrete:atMethod:" : "MichaelJungo 5/22/2016 17:51",
+		"addConcrete:at:withSelector:" : "MichaelJungo 6/4/2016 12:59",
+		"addConcrete:atMethod:" : "MichaelJungo 6/4/2016 12:59",
 		"addTemplate:" : "MichaelJungo 5/21/2016 15:25",
 		"classExists:withSelector:" : "MichaelJungo 5/21/2016 22:06",
 		"classes" : "MichaelJungo 5/21/2016 22:12",
 		"concretes" : "MichaelJungo 5/21/2016 15:36",
+		"createTemplateFromClass:withSelector:" : "MichaelJungo 6/4/2016 13:30",
 		"findSelector:" : "MichaelJungo 5/21/2016 15:26",
 		"initialize" : "MichaelJungo 5/21/2016 14:35",
 		"methodExists:" : "MichaelJungo 5/21/2016 22:05",
+		"methodTemplateOf:" : "MichaelJungo 6/4/2016 12:44",
 		"templates" : "MichaelJungo 5/21/2016 14:33" } }

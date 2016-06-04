@@ -14,7 +14,6 @@ handleAssignment: anAssignmentNode
 		valueNode class == RBLiteralValueNode ifTrue: [
 			typeSet := Set new add: (valueNode value class); yourself.
 		] ifFalse: [
-			self halt.
 			self processNode: valueNode.
 			returnTypes hasValue ifTrue: [
 				returnTypes hasMultipleTypes ifTrue: [
