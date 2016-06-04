@@ -1,6 +1,6 @@
 as yet unclassified
-setTypes: aSet
+setIncompleteTypes: aSet
 	types := aSet.
 	hasValue := true.
 	isUnknown := false.
-	isIncomplete := false.
+	isIncomplete := true.

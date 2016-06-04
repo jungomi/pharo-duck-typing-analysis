@@ -1,5 +1,8 @@
 handling
 handleReturn: aNode
-	"TODO: Do some return related stuff"
-	self processNode: (aNode value).
-	^ returnTypes types
+	self processNode: aNode value.
+	returnTypes hasValue ifTrue: [
+		currentScope returnTypes mergeReturnValues: returnTypes.
+	] ifFalse: [
+		currentScope returnTypes setUnknown.
+	].

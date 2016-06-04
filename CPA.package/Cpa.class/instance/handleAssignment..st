@@ -15,14 +15,9 @@ handleAssignment: anAssignmentNode
 			typeSet := Set new add: (valueNode value class); yourself.
 		] ifFalse: [
 			self processNode: valueNode.
-			returnTypes hasValue ifTrue: [
-				returnTypes hasMultipleTypes ifTrue: [
-					typeSet := returnTypes types.
-				] ifFalse: [
-					typeSet := Set new add: (returnTypes types); yourself.
-				].
+			(returnTypes hasValue and: returnTypes isUnknown not) ifTrue: [
+				typeSet := returnTypes types.
 			] ifFalse: [
-				"FIME: seems unnecessarily stupid"
 				typeSet := Set new.
 			].
 		].

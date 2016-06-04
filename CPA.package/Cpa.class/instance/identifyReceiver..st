@@ -18,3 +18,4 @@ identifyReceiver: aNode
 		^ returnTypes types."
 	].
 	"Is there any other possible scenario?"
+	^ nil

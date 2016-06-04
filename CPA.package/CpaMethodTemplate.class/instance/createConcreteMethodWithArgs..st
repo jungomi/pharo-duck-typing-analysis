@@ -4,6 +4,6 @@ createConcreteMethodWithArgs: anOrderedCollection
 
 	| concreteMethod |
 	concreteMethod := CpaConcreteMethod new: self.
-	concreteMethod selectorTypes: (self assignArgsToSelectors: anOrderedCollection).
+	concreteMethod selectorTypes: (self assignToSelectors: anOrderedCollection).
 	concretes add: concreteMethod.
 	^ concreteMethod

@@ -1,6 +1,6 @@
 as yet unclassified
-setType: aClass
+setIncompleteType: aClass
 	types := Set new add: aClass; yourself.
 	hasValue := true.
 	isUnknown := false.
-	isIncomplete := false.
+	isIncomplete := true.

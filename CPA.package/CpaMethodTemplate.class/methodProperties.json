@@ -4,12 +4,12 @@
 		"new:withSelector:" : "MichaelJungo 6/4/2016 14:06" },
 	"instance" : {
 		"addConcreteMethod:" : "MichaelJungo 6/4/2016 12:58",
-		"assignArgsToSelectors:" : "MichaelJungo 6/4/2016 14:12",
-		"concreteMethodExists:" : "MichaelJungo 6/4/2016 12:58",
-		"concreteMethodWithArgs:" : "MichaelJungo 6/4/2016 14:08",
+		"assignToSelectors:" : "MichaelJungo 6/4/2016 23:42",
+		"concreteMethodExists:" : "MichaelJungo 6/4/2016 23:43",
+		"concreteMethodWithArgs:" : "MichaelJungo 6/4/2016 23:43",
 		"concretes" : "MichaelJungo 5/21/2016 20:04",
 		"createConcreteMethod:" : "MichaelJungo 6/4/2016 13:42",
-		"createConcreteMethodWithArgs:" : "MichaelJungo 6/4/2016 13:42",
+		"createConcreteMethodWithArgs:" : "MichaelJungo 6/4/2016 23:43",
 		"initialize" : "MichaelJungo 5/21/2016 20:04",
 		"numArgs" : "MichaelJungo 6/4/2016 14:01",
 		"numArgs:" : "MichaelJungo 6/4/2016 14:02",
@@ -17,4 +17,6 @@
 		"recipient:" : "MichaelJungo 5/21/2016 15:08",
 		"selector" : "MichaelJungo 5/21/2016 15:20",
 		"selector:" : "MichaelJungo 5/21/2016 15:20",
-		"splitSelector" : "MichaelJungo 5/21/2016 21:41" } }
+		"splitSelector" : "MichaelJungo 5/21/2016 21:41",
+		"variables" : "MichaelJungo 6/4/2016 23:35",
+		"variables:" : "MichaelJungo 6/4/2016 23:36" } }

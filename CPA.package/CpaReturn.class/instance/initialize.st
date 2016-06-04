@@ -1,3 +1,4 @@
 as yet unclassified
 initialize
-	hasValue := false
+	hasValue := false.
+	

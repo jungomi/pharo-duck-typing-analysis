@@ -8,7 +8,8 @@
 	"instvars" : [
 		"types",
 		"hasValue",
-		"hasMultipleTypes" ],
+		"isUnknown",
+		"isIncomplete" ],
 	"name" : "CpaReturn",
 	"pools" : [
 		 ],

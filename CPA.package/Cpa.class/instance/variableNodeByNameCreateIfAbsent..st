@@ -14,6 +14,6 @@ variableNodeByNameCreateIfAbsent: aName
 		(scope containsVariable: aName) ifTrue: [
 			^ scope variableNodeByName: aName.
 		].
-		scope := (scope parent).
+		scope := scope parent.
 	].
 	^ self newLocalVariable: aName.

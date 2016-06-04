@@ -9,7 +9,8 @@
 		"recipient",
 		"selector",
 		"concretes",
-		"numArgs" ],
+		"numArgs",
+		"variables" ],
 	"name" : "CpaMethodTemplate",
 	"pools" : [
 		 ],

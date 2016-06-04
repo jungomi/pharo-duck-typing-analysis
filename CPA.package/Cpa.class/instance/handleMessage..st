@@ -5,23 +5,24 @@ handleMessage: aMessageNode
 	receiver = 'super' ifTrue: [ ^ self handleSuper: (aMessageNode receiver) ].
 	receiver isClass ifTrue: [
 		"TODO: handle wrong selectors (probably because of parameters)"
+		"NOTE: return types are implicitely passed along"
 		"^ (Cpa class: receiver hasMethod: (aMessageNode selector)) ifTrue: [
 				self handleClass: receiver selector: (aMessageNode selector).
 			]."
 		^ self handleClass: receiver selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
 	].
 	receiver class == Set ifTrue: [ | types duck |
-		types := Set new.
+		types := CpaReturn new.
 		duck := CpaDuck new: (aMessageNode selector).
 		receiver do: [ :each |
 			(Cpa class: each hasMethod: (aMessageNode selector)) ifTrue: [
 				duck addType: each.
 				self handleClass: each selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
-				types add: (returnTypes types).
+				types mergeReturnValues: returnTypes.
 			].
 		].
 		duck numTypes > 1 ifTrue: [ self addDuck: duck. ].
-		^ types isNotEmpty ifTrue: [ returnTypes setTypes: types. ].
+		^ returnTypes copyReturnValues: types.
 	].
 	"Is this case even possible? If it is then it will probably fail anyways"
 	receiver ifNotNil: [
