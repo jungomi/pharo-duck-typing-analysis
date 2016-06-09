@@ -1,0 +1,14 @@
+{
+	"category" : "CPA",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"valueTypes" ],
+	"name" : "CpaConcreteBlockMethod",
+	"pools" : [
+		 ],
+	"super" : "CpaConcreteMethod",
+	"type" : "normal" }

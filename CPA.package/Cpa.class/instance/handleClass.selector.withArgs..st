@@ -15,6 +15,9 @@ handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 		^ returnTypes setType: aClass.
 	].
 	(Cpa class: aClass hasMethod: aSelector) ifTrue: [
+		(self methodMustBeIntercepted: aClass>>aSelector) ifTrue: [
+			^ returnTypes setTypes: currentScope block valueTypes.
+		].
 		self handleMethod: aClass>>aSelector withArgs: anOrderedCollection.
 		returnTypes hasValue ifFalse: [ returnTypes setType: aClass ].
 	].

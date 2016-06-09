@@ -1,3 +1,3 @@
-accessing
+initialization
 initialize
 	concretes := Set new.

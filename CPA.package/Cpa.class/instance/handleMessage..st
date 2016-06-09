@@ -2,27 +2,30 @@ handling
 handleMessage: aMessageNode
 	| receiver |
 	receiver := self identifyReceiver: (aMessageNode receiver).
-	receiver = 'super' ifTrue: [ ^ self handleSuper: (aMessageNode receiver) ].
+	receiver == #super ifTrue: [ ^ self handleSuper: (aMessageNode receiver) ].
 	receiver isClass ifTrue: [
-		"TODO: handle wrong selectors (probably because of parameters)"
 		"NOTE: return types are implicitely passed along"
-		"^ (Cpa class: receiver hasMethod: (aMessageNode selector)) ifTrue: [
-				self handleClass: receiver selector: (aMessageNode selector).
-			]."
 		^ self handleClass: receiver selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
 	].
 	receiver class == Set ifTrue: [ | types duck |
 		types := CpaReturn new.
 		duck := CpaDuck new: (aMessageNode selector).
 		receiver do: [ :each |
-			(Cpa class: each hasMethod: (aMessageNode selector)) ifTrue: [
-				duck addType: each.
-				self handleClass: each selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
-				types mergeReturnValues: returnTypes.
+			each class == CpaBlock ifTrue: [
+				self handleBlockReceiver: each withSelector: aMessageNode selector andArgs: aMessageNode arguments.
+			] ifFalse: [
+				(Cpa class: each hasMethod: (aMessageNode selector)) ifTrue: [
+					duck addType: each.
+					self handleClass: each selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
+					types mergeReturnValues: returnTypes.
+				].
 			].
 		].
 		duck numTypes > 1 ifTrue: [ self addDuck: duck. ].
 		^ returnTypes copyReturnValues: types.
+	].
+	receiver class == CpaBlock ifTrue: [
+		self handleBlockReceiver: receiver withSelector: aMessageNode selector andArgs: aMessageNode arguments.
 	].
 	"Is this case even possible? If it is then it will probably fail anyways"
 	receiver ifNotNil: [

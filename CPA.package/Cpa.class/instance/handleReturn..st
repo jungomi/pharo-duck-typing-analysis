@@ -4,5 +4,5 @@ handleReturn: aNode
 	returnTypes hasValue ifTrue: [
 		currentScope returnTypes mergeReturnValues: returnTypes.
 	] ifFalse: [
-		currentScope returnTypes setUnknown.
+		currentScope returnTypes addUnknown.
 	].

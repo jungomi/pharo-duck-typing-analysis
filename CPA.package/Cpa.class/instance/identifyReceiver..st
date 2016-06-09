@@ -10,12 +10,11 @@ identifyReceiver: aNode
 		self handleMessage: aNode.
 		^ returnTypes types.
 	].
-	aNode class == RBSuperNode ifTrue: [ ^ 'super' ].
+	aNode class == RBSuperNode ifTrue: [ ^ #super ].
 	aNode class == RBSelfNode ifTrue: [ ^ currentScope recipient ].
 	aNode class == RBBlockNode ifTrue: [
-		^ BlockClosure.
-		"self handleBlock: aNode.
-		^ returnTypes types."
+		self handleBlock: aNode.
+		^ CpaBlock new: returnTypes types.
 	].
 	"Is there any other possible scenario?"
 	^ nil
