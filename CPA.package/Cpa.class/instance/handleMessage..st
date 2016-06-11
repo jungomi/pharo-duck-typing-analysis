@@ -2,7 +2,7 @@ handling
 handleMessage: aMessageNode
 	| receiver |
 	receiver := self identifyReceiver: (aMessageNode receiver).
-	receiver == #super ifTrue: [ ^ self handleSuper: (aMessageNode receiver) ].
+	receiver == #super ifTrue: [ receiver := self identifySuperReceiver: aMessageNode selector ].
 	receiver isClass ifTrue: [
 		"NOTE: return types are implicitely passed along"
 		^ self handleClass: receiver selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
