@@ -1,0 +1,14 @@
+{
+	"category" : "CPA",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"originalReceiver" ],
+	"name" : "CpaSuperMethodScope",
+	"pools" : [
+		 ],
+	"super" : "CpaScope",
+	"type" : "normal" }

@@ -1,23 +1,22 @@
 handling
 handleClass: aClass selector: aSelector withArgs: anOrderedCollection
-	"TODO: refactor the duplicate parts and find initialize method that is called by new"
+	| receiver selector |
 	self addClassInstanceVariables: aClass.
+	(self classMustBeIntercepted: aClass atSelector: aSelector) ifTrue: [
+		^ returnTypes setTypes: currentScope block valueTypes.
+	].
+	selector := aSelector.
 	aSelector == #new ifTrue: [
-		(Cpa class: aClass hasMethod: #initialize) ifTrue: [
-			self handleMethod: aClass>>#initialize withArgs: anOrderedCollection.
+		(Cpa class: aClass hasClassMethod: #new) ifTrue: [
+			^ self handleMethod: (aClass class)>>#new withArgs: anOrderedCollection.
 		].
-		^ returnTypes setType: aClass.
+		selector := #initialize.
 	].
-	aSelector == #new: ifTrue: [
-		(Cpa class: aClass hasMethod: #initialize:) ifTrue: [
-			self handleMethod: aClass>>#initialize: withArgs: anOrderedCollection.
-		].
-		^ returnTypes setType: aClass.
+	receiver := Cpa class: aClass superclass respondsTo: selector.
+	receiver ifNil: [ ^ returnTypes setUnknown. ].
+	(Cpa class: aClass hasMethod: selector) ifTrue: [
+		self handleMethod: receiver>>selector withArgs: anOrderedCollection.
+	] ifFalse: [
+		self handleMethod: receiver>>selector superOf: aClass withArgs: anOrderedCollection.
 	].
-	(Cpa class: aClass hasMethod: aSelector) ifTrue: [
-		(self methodMustBeIntercepted: aClass>>aSelector) ifTrue: [
-			^ returnTypes setTypes: currentScope block valueTypes.
-		].
-		self handleMethod: aClass>>aSelector withArgs: anOrderedCollection.
-		returnTypes hasValue ifFalse: [ returnTypes setType: aClass ].
-	].
+	returnTypes hasValue ifFalse: [ returnTypes setType: aClass. ].

@@ -11,7 +11,13 @@ identifyReceiver: aNode
 		^ returnTypes types.
 	].
 	aNode class == RBSuperNode ifTrue: [ ^ #super ].
-	aNode class == RBSelfNode ifTrue: [ ^ currentScope recipient ].
+	aNode class == RBSelfNode ifTrue: [
+		^ currentScope class == CpaSuperMethodScope ifTrue: [
+			currentScope originalReceiver.
+		] ifFalse: [
+			currentScope recipient.
+		].
+	].
 	aNode class == RBBlockNode ifTrue: [
 		self handleBlock: aNode.
 		^ CpaBlock new: returnTypes types.

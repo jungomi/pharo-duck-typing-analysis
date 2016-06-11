@@ -14,18 +14,16 @@ handleMessage: aMessageNode
 			each class == CpaBlock ifTrue: [
 				self handleBlockReceiver: each withSelector: aMessageNode selector andArgs: aMessageNode arguments.
 			] ifFalse: [
-				(Cpa class: each hasMethod: (aMessageNode selector)) ifTrue: [
-					duck addType: each.
-					self handleClass: each selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
-					types mergeReturnValues: returnTypes.
-				].
+				duck addType: each.
+				self handleClass: each selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
+				types mergeReturnValues: returnTypes.
 			].
 		].
 		duck numTypes > 1 ifTrue: [ self addDuck: duck. ].
 		^ returnTypes copyReturnValues: types.
 	].
 	receiver class == CpaBlock ifTrue: [
-		self handleBlockReceiver: receiver withSelector: aMessageNode selector andArgs: aMessageNode arguments.
+		^ self handleBlockReceiver: receiver withSelector: aMessageNode selector andArgs: aMessageNode arguments.
 	].
 	"Is this case even possible? If it is then it will probably fail anyways"
 	receiver ifNotNil: [
