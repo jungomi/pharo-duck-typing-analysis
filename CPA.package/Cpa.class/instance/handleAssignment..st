@@ -5,10 +5,10 @@ handleAssignment: anAssignmentNode
 	valueNode := anAssignmentNode value.
 	variableNode := anAssignmentNode variable.
 	valueNode class == RBVariableNode ifTrue: [ | cpaValueNode cpaVariableNode |
-		cpaValueNode := self variableNodeByName: (valueNode name).
-		cpaVariableNode := self variableNodeByName: (variableNode name).
-		cpaValueNode addIncomingNode: cpaVariableNode.
-		cpaVariableNode addOutgoingNode: cpaValueNode.
+		cpaValueNode := self variableNodeByNameCreateIfAbsent: valueNode name.
+		cpaVariableNode := self variableNodeByNameCreateIfAbsent: variableNode name.
+		cpaValueNode addOutgoingNode: cpaVariableNode.
+		cpaVariableNode addIncomingNode: cpaValueNode.
 		typeSet := cpaValueNode types.
 	] ifFalse: [
 		valueNode class == RBLiteralValueNode ifTrue: [

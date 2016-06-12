@@ -1,0 +1,14 @@
+{
+	"category" : "CPA-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "CpaClassTest",
+	"pools" : [
+		 ],
+	"super" : "CpaTest",
+	"type" : "normal" }

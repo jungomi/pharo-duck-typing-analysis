@@ -1,0 +1,18 @@
+{
+	"category" : "CPA-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"cpa",
+		"mock",
+		"subMock",
+		"subSubMock",
+		"types" ],
+	"name" : "CpaTestHelper",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

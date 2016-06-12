@@ -1,4 +1,4 @@
-as yet unclassified
+testing
 isTemporaryVariableDefintion: aVariableNode
 	"Returns whether the variable is temporary"
 	

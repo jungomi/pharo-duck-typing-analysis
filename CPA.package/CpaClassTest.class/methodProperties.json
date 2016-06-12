@@ -1,0 +1,9 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"setUp" : "MichaelJungo 6/12/2016 02:23",
+		"tearDown" : "MichaelJungo 6/12/2016 02:19",
+		"testclasshasClassMethod" : "MichaelJungo 6/12/2016 02:20",
+		"testclasshasInstanceMethod" : "MichaelJungo 6/12/2016 02:20",
+		"testclasshasMethod" : "MichaelJungo 6/12/2016 02:20" } }

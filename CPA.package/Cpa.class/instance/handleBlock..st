@@ -9,13 +9,27 @@ handleBlock: aBlockNode
 		self processNode: each.
 		index = numStatements ifTrue: [
 			returnTypes hasValue ifFalse: [
-				each class == RBAssignmentNode ifTrue: [
-					returnTypes setTypes: (self variableNodeByName: each variable).
-				].
-				each class == RBVariableNode ifTrue: [
-					returnTypes setTypes: (self variableNodeByName: each).
-				].
 				each class == RBLiteralValueNode ifTrue: [ returnTypes setType: (each value class) ].
+				each class == RBAssignmentNode ifTrue: [ | varNode |
+					varNode := self variableNodeByName: each variable name.
+					varNode types isEmpty ifTrue: [
+						returnTypes setUnknown.
+					] ifFalse: [
+						returnTypes setTypes: varNode types.
+					].
+				].
+				each class == RBVariableNode ifTrue: [ | varNode |
+					varNode := self variableNodeByName: each name.
+					varNode ifNil: [
+						returnTypes setUnknown
+					] ifNotNil: [
+						varNode types isEmpty ifTrue: [
+							returnTypes setUnknown.
+						] ifFalse: [
+							returnTypes setTypes: varNode types.
+						].
+					].
+				].
 			].
 		].
 	].

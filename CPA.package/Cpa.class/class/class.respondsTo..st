@@ -1,4 +1,4 @@
-as yet unclassified
+testing
 class: aClass respondsTo: aSelector
 	"Returns the receiver of the selector or nil if class does not respond to it"
 

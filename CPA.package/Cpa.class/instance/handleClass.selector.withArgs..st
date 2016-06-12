@@ -12,7 +12,7 @@ handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 		].
 		selector := #initialize.
 	].
-	receiver := Cpa class: aClass superclass respondsTo: selector.
+	receiver := Cpa class: aClass respondsTo: selector.
 	receiver ifNil: [ ^ returnTypes setUnknown. ].
 	(Cpa class: aClass hasMethod: selector) ifTrue: [
 		self handleMethod: receiver>>selector withArgs: anOrderedCollection.
