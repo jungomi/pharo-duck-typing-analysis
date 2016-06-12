@@ -1,4 +1,4 @@
-as yet unclassified
+propagation
 propagate
 	"Propagate types to all outgoing nodes"
 	

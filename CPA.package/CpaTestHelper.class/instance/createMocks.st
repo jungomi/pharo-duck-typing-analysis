@@ -1,4 +1,4 @@
-as yet unclassified
+mocking
 createMocks
 	mock := Object subclass: #TestClassMock instanceVariableNames: 'instVar'.
 	mock compile: 'initialize instVar := 0'.

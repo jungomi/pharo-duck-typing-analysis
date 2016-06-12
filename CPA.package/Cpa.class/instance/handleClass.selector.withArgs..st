@@ -8,7 +8,8 @@ handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 	selector := aSelector.
 	aSelector == #new ifTrue: [
 		(Cpa class: aClass hasClassMethod: #new) ifTrue: [
-			^ self handleMethod: (aClass class)>>#new withArgs: anOrderedCollection.
+			self handleMethod: (aClass class)>>#new withArgs: anOrderedCollection.
+			^ returnTypes hasValue ifFalse: [ returnTypes setType: aClass ].
 		].
 		selector := #initialize.
 	].

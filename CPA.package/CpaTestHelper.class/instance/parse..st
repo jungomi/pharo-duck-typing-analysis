@@ -1,3 +1,3 @@
-as yet unclassified
+parsing
 parse: aString
 	^ RBParser parseExpression: aString.
