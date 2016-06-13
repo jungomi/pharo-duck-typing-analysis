@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 isIncomplete: aBool
 	isIncomplete := aBool

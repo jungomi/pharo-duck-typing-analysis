@@ -1,4 +1,4 @@
-as yet unclassified
+adding
 addConcrete: aConcreteMethod atMethod: aMethod
 	"Adds a concrete type set to the corresponding template"
 

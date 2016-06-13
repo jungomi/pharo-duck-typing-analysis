@@ -1,3 +1,3 @@
-as yet unclassified
+setting
 set
 	hasValue := true.

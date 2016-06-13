@@ -1,4 +1,4 @@
-as yet unclassified
+setting
 setTypes: aSet
 	types := aSet.
 	hasValue := true.

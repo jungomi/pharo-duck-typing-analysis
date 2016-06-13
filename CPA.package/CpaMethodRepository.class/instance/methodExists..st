@@ -1,3 +1,3 @@
-as yet unclassified
+testing
 methodExists: aMethod
 	^ templates keys includes: aMethod

@@ -1,4 +1,4 @@
-as yet unclassified
+adding
 createBlockTemplateFromClass: aClass withSelector: aSelector
 	| temp varNames |
 	temp := CpaBlockMethodTemplate new: aClass withSelector: aSelector.

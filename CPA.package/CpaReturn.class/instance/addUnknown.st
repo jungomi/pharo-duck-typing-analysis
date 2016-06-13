@@ -1,4 +1,4 @@
-as yet unclassified
+adding
 addUnknown
 	hasValue ifFalse: [ ^ self setUnknown. ].
 	isUnknown ifFalse: [ ^ isIncomplete := true. ].

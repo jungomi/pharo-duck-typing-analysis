@@ -1,4 +1,4 @@
-as yet unclassified
+adding
 addTemplate: aMethodTemplate
 	| method |
 	method := (aMethodTemplate recipient)>>(aMethodTemplate selector).

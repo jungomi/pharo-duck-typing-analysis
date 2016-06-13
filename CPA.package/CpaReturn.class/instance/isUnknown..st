@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 isUnknown: aBool
 	isUnknown := aBool

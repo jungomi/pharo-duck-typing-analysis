@@ -1,4 +1,4 @@
-as yet unclassified
+adding
 addConcrete: aConcreteMethod at: aClass withSelector: aSelector
 	"Adds a concrete type set to the corresponding template and creates it if it doesn't exist"
 

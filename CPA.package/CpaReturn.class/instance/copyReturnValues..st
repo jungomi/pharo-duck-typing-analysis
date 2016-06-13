@@ -1,4 +1,4 @@
-as yet unclassified
+copying
 copyReturnValues: aCpaReturn
 	aCpaReturn hasValue ifFalse: [ ^ self unset. ].
 	aCpaReturn isUnknown ifTrue: [ ^ self setUnknown. ].

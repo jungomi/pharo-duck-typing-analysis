@@ -1,4 +1,4 @@
-as yet unclassified
+setting
 unset
 	hasValue := false.
 	isUnknown := false.

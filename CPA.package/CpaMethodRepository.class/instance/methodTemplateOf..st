@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 methodTemplateOf: aMethod
 	^ templates at: aMethod ifAbsent: [ nil ]

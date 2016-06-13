@@ -6,8 +6,7 @@
 		 ],
 	"commentStamp" : "MichaelJungo 6/12/2016 23:18",
 	"instvars" : [
-		"templates",
-		"concretes" ],
+		"templates" ],
 	"name" : "CpaMethodRepository",
 	"pools" : [
 		 ],

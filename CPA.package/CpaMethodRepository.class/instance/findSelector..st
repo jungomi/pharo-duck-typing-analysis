@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 findSelector: aSelector
 	"Finds all templates that use the given selector"
 	

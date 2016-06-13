@@ -1,4 +1,4 @@
-as yet unclassified
+adding
 createTemplateFromClass: aClass withSelector: aSelector
 	| temp varNames |
 	temp := CpaMethodTemplate new: aClass withSelector: aSelector.

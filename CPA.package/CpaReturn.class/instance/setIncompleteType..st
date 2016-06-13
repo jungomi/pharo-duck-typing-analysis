@@ -1,4 +1,4 @@
-as yet unclassified
+setting
 setIncompleteType: aClass
 	types := Set new add: aClass; yourself.
 	hasValue := true.

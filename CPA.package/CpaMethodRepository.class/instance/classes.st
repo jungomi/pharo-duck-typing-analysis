@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 classes
 	"Returns a list of all classes in the repository"
 	

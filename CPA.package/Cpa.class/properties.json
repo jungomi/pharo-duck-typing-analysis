@@ -6,7 +6,6 @@
 		 ],
 	"commentStamp" : "MichaelJungo 6/12/2016 22:00",
 	"instvars" : [
-		"graph",
 		"globalScope",
 		"currentScope",
 		"repository",

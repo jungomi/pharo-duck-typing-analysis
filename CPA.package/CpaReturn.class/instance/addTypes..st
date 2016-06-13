@@ -1,4 +1,4 @@
-as yet unclassified
+adding
 addTypes: aSet
 	hasValue ifFalse: [ ^ self setTypes: aSet. ].
 	isUnknown ifTrue: [ ^ self setIncompleteTypes: aSet. ].

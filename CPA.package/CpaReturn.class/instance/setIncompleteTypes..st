@@ -1,4 +1,4 @@
-as yet unclassified
+setting
 setIncompleteTypes: aSet
 	types := aSet.
 	hasValue := true.
