@@ -4,7 +4,7 @@ handleBlock: aCpaBlock method: aMethod withArgs: anOrderedCollection
 	argTypes := self identifyArgumentTypes: anOrderedCollection.
 	temp := repository methodTemplateOf: aMethod.
 	temp ifNil: [
-		temp := repository createBlockTemplateFromClass: (aMethod methodClass) withSelector: (aMethod selector)
+		temp := repository createBlockTemplateFromClass: aMethod methodClass withSelector: aMethod selector.
 	].
 	conc := temp concreteMethodWithArgs: argTypes andValue: aCpaBlock valueTypes.
 	conc ifNil: [

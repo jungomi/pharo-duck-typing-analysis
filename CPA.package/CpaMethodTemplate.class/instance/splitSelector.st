@@ -6,7 +6,7 @@ splitSelector
 	list := OrderedCollection new.
 	(selector matchesRegex: '.*\:') ifTrue: [
 		selector regex: '\w+\:' matchesDo: [ :each |
-			list add: (each asSymbol).
+			list add: each asSymbol.
  	 	].
 	] ifFalse: [
 		list add: selector.

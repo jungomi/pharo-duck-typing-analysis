@@ -1,5 +1,5 @@
 adding
 addTemplate: aMethodTemplate
 	| method |
-	method := (aMethodTemplate recipient)>>(aMethodTemplate selector).
+	method := (aMethodTemplate receiver)>>(aMethodTemplate selector).
 	templates add: method -> aMethodTemplate.

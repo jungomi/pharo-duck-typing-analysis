@@ -3,7 +3,7 @@ identifyReceiver: aNode
 	aNode class == RBLiteralValueNode ifTrue: [ ^ aNode value class ].
 	aNode class == RBVariableNode ifTrue: [ 
 		^ aNode name asClassIfAbsent: [
-			(self variableNodeByNameCreateIfAbsent: (aNode name)) types.
+			(self variableNodeByNameCreateIfAbsent: aNode name) types.
 		].
 	].
 	aNode class == RBMessageNode ifTrue: [
@@ -15,7 +15,7 @@ identifyReceiver: aNode
 		^ currentScope class == CpaSuperMethodScope ifTrue: [
 			currentScope originalReceiver.
 		] ifFalse: [
-			currentScope recipient.
+			currentScope receiver.
 		].
 	].
 	aNode class == RBBlockNode ifTrue: [

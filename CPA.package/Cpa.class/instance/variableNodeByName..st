@@ -2,14 +2,14 @@ accessing
 variableNodeByName: aName
 	"Returns the node in the graph by its name"
 	
-	| scope recipient |
+	| scope receiver |
 	currentScope class == CpaSuperMethodScope ifTrue: [
-		recipient := currentScope originalReceiver.
+		receiver := currentScope originalReceiver.
 	] ifFalse: [
-		recipient := currentScope recipient.
+		receiver := currentScope receiver.
 	].
-	recipient ifNotNil: [ | instNode |
-		instNode := self instanceVariableNodeByName: aName OfClass: recipient.
+	receiver ifNotNil: [ | instNode |
+		instNode := self instanceVariableNodeByName: aName OfClass: receiver.
 		instNode ifNotNil: [ ^ instNode ].
 	].
 	scope := currentScope.

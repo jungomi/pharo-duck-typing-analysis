@@ -5,6 +5,6 @@ classes
 	| classList |
 	classList := Set new.
 	templates do: [ :each |
-		classList add: (each recipient).
+		classList add: (each receiver).
 	].
 	^ classList

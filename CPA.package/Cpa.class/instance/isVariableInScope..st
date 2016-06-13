@@ -4,6 +4,6 @@ isVariableInScope: aName
 	scope := currentScope.
 	[ scope isNotNil ] whileTrue: [
 		(scope containsVariable: aName) ifTrue: [ ^ true ].
-		scope := (scope parent).
+		scope := scope parent.
 	].
 	^ false.

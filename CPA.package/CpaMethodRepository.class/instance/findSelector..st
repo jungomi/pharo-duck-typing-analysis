@@ -6,7 +6,7 @@ findSelector: aSelector
 	tempSet := Set new.
 	templates do: [ :each |
 		each selectors == aSelector ifTrue: [
-			tempSet add: (each recipient)
+			tempSet add: each receiver.
 		].
 	].
 	^ tempSet

@@ -11,7 +11,7 @@ Public API and Key Messages
       a concrete method to the template of Class>>Symbol.
 
 Instance Variables
-  recipient: <Class> - the receiver of the method.
+  receiver: <Class> - the receiver of the method.
   selector: <Symbol> - the selector of the method.
   concretes: <Set> - the list of concrete methods.
   numArgs: <SmallInteger> - the number of arguments of the method.

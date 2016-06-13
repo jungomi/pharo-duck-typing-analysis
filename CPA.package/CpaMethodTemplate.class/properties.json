@@ -4,9 +4,9 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "MichaelJungo 6/12/2016 23:26",
+	"commentStamp" : "MichaelJungo 6/13/2016 11:53",
 	"instvars" : [
-		"recipient",
+		"receiver",
 		"selector",
 		"concretes",
 		"numArgs",

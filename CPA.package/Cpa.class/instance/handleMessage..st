@@ -1,21 +1,21 @@
 handling
 handleMessage: aMessageNode
 	| receiver |
-	receiver := self identifyReceiver: (aMessageNode receiver).
+	receiver := self identifyReceiver: aMessageNode receiver.
 	receiver == #super ifTrue: [ receiver := self identifySuperReceiver: aMessageNode selector ].
 	receiver isClass ifTrue: [
-		"NOTE: return types are implicitely passed along"
-		^ self handleClass: receiver selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
+		"NOTE: return types are implicitly passed along"
+		^ self handleClass: receiver selector: aMessageNode selector withArgs: aMessageNode arguments.
 	].
 	receiver class == Set ifTrue: [ | types duck |
 		types := CpaReturn new.
-		duck := CpaDuck new: (aMessageNode selector).
+		duck := CpaDuck new: aMessageNode selector.
 		receiver do: [ :each |
 			each class == CpaBlock ifTrue: [
 				self handleBlockReceiver: each withSelector: aMessageNode selector andArgs: aMessageNode arguments.
 			] ifFalse: [
 				duck addType: each.
-				self handleClass: each selector: (aMessageNode selector) withArgs: (aMessageNode arguments).
+				self handleClass: each selector: aMessageNode selector withArgs: aMessageNode arguments.
 				types mergeReturnValues: returnTypes.
 			].
 		].
@@ -27,5 +27,5 @@ handleMessage: aMessageNode
 	].
 	"Is this case even possible? If it is then it will probably fail anyways"
 	receiver ifNotNil: [
-		self processNode: (RBParser parseCompiledMethod: (receiver>>(aMessageNode selector))).
+		self processNode: (RBParser parseCompiledMethod: receiver>>(aMessageNode selector)).
 	].

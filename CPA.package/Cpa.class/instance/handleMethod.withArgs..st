@@ -4,7 +4,7 @@ handleMethod: aMethod withArgs: anOrderedCollection
 	argTypes := self identifyArgumentTypes: anOrderedCollection.
 	temp := repository methodTemplateOf: aMethod.
 	temp ifNil: [
-		temp := repository createTemplateFromClass: (aMethod methodClass) withSelector: (aMethod selector)
+		temp := repository createTemplateFromClass: aMethod methodClass withSelector: aMethod selector.
 	].
 	conc := temp concreteMethodWithArgs: argTypes.
 	conc ifNil: [
