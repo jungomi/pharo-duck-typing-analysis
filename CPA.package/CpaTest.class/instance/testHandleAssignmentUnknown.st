@@ -4,6 +4,6 @@ testHandleAssignmentUnknown
 	assignment := 'variable := unknownVariable'.
 	helper cpa handleAssignment: (helper parse: assignment).
 	varNode := helper cpa variableNodeByName: 'variable'.
-	self deny: varNode == nil.
+	self deny: varNode isNil.
 	self assert: varNode types isEmpty.
 	

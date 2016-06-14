@@ -6,6 +6,7 @@ testIdentifyArgumentTypes
 		args := args collect: [ :each | helper parse: each ].
 		argTypes := #(CpaBlock True Float SmallInteger TestSubClassMock #super Object TestClassMock) asOrderedCollection.
 		argTypes := argTypes collect: [ :each | each asClassIfAbsent: [ each ] ].
+		argTypes at: 3 put: 3.14 class.
 		argTypes at: 4 put: (Set new add: (argTypes at: 4); yourself).
 		argTypes at: 8 put: (Set new add: (argTypes at: 8); yourself).
 		helper cpa newScope: helper subMock.
