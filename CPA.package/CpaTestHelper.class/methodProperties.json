@@ -2,12 +2,12 @@
 	"class" : {
 		 },
 	"instance" : {
-		"cpa" : "MichaelJungo 6/12/2016 02:08",
+		"cpa" : "",
 		"createMocks" : "MichaelJungo 6/12/2016 16:36",
 		"deleteMocks" : "MichaelJungo 6/12/2016 02:16",
 		"initialize" : "MichaelJungo 6/14/2016 15:00",
-		"mock" : "MichaelJungo 6/12/2016 01:56",
+		"mock" : "",
 		"parse:" : "MichaelJungo 6/12/2016 02:25",
-		"subMock" : "MichaelJungo 6/12/2016 01:57",
-		"subSubMock" : "MichaelJungo 6/12/2016 01:57",
-		"types" : "MichaelJungo 6/12/2016 16:01" } }
+		"subMock" : "",
+		"subSubMock" : "",
+		"types" : "" } }

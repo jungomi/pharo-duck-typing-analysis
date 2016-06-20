@@ -3,10 +3,10 @@
 		"new:" : "MichaelJungo 5/22/2016 17:40" },
 	"instance" : {
 		"initialize" : "MichaelJungo 6/4/2016 19:37",
-		"receiver" : "MichaelJungo 6/13/2016 11:56",
-		"returnTypes" : "MichaelJungo 5/22/2016 17:38",
-		"selector" : "MichaelJungo 5/22/2016 17:42",
-		"selectorTypes" : "MichaelJungo 5/22/2016 17:38",
+		"receiver" : "",
+		"returnTypes" : "",
+		"selector" : "",
+		"selectorTypes" : "",
 		"selectorTypes:" : "MichaelJungo 5/22/2016 17:38",
-		"template" : "MichaelJungo 5/22/2016 17:37",
+		"template" : "",
 		"template:" : "MichaelJungo 5/22/2016 17:37" } }
