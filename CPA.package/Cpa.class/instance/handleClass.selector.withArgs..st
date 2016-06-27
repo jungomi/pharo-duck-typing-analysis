@@ -1,7 +1,6 @@
 handling
 handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 	| receiver selector |
-	self addClassInstanceVariables: aClass.
 	(self classMustBeIntercepted: aClass atSelector: aSelector) ifTrue: [
 		^ returnTypes setTypes: currentScope block valueTypes.
 	].
@@ -10,9 +9,10 @@ handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 	(receiver class == Metaclass and: selector == #new) ifTrue: [
 		(Cpa class: receiver hasMethod: selector) ifFalse: [
 			receiver := receiver baseClass.
-			selector := #initialize
+			selector := #initialize.
 		].
 	].
+	self addClassInstanceVariables: receiver.
 	receiver := Cpa class: receiver respondsTo: selector.
 	receiver ifNil: [ ^ returnTypes setUnknown ].
 	((aClass class == Metaclass and: selector == #initialize)
