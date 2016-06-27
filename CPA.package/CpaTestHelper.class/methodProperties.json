@@ -2,12 +2,13 @@
 	"class" : {
 		 },
 	"instance" : {
-		"cpa" : "",
+		"cpa" : "MichaelJungo 6/27/2016 21:20",
 		"createMocks" : "MichaelJungo 6/12/2016 16:36",
 		"deleteMocks" : "MichaelJungo 6/12/2016 02:16",
 		"initialize" : "MichaelJungo 6/14/2016 15:00",
-		"mock" : "",
+		"mock" : "MichaelJungo 6/27/2016 21:20",
 		"parse:" : "MichaelJungo 6/12/2016 02:25",
-		"subMock" : "",
-		"subSubMock" : "",
-		"types" : "" } }
+		"singletonSet:" : "MichaelJungo 6/27/2016 18:49",
+		"subMock" : "MichaelJungo 6/27/2016 21:20",
+		"subSubMock" : "MichaelJungo 6/27/2016 21:20",
+		"types" : "MichaelJungo 6/27/2016 21:14" } }

@@ -5,19 +5,26 @@ handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 	(self classMustBeIntercepted: aClass atSelector: aSelector) ifTrue: [
 		^ returnTypes setTypes: currentScope block valueTypes.
 	].
+	receiver := aClass.
 	selector := aSelector.
-	aSelector == #new ifTrue: [
-		(Cpa class: aClass hasClassMethod: #new) ifTrue: [
-			self handleMethod: (aClass class)>>#new withArgs: anOrderedCollection.
-			^ returnTypes hasValue ifFalse: [ returnTypes setType: aClass ].
+	(receiver class == Metaclass and: selector == #new) ifTrue: [
+		(Cpa class: receiver hasMethod: selector) ifFalse: [
+			receiver := receiver baseClass.
+			selector := #initialize
 		].
-		selector := #initialize.
 	].
-	receiver := Cpa class: aClass respondsTo: selector.
-	receiver ifNil: [ ^ returnTypes setUnknown. ].
-	(Cpa class: aClass hasMethod: selector) ifTrue: [
+	receiver := Cpa class: receiver respondsTo: selector.
+	receiver ifNil: [ ^ returnTypes setUnknown ].
+	((aClass class == Metaclass and: selector == #initialize)
+		or: (Cpa class: aClass hasMethod: selector)) ifTrue: [
 		self handleMethod: receiver>>selector withArgs: anOrderedCollection.
 	] ifFalse: [
 		self handleMethod: receiver>>selector superOf: aClass withArgs: anOrderedCollection.
 	].
-	returnTypes hasValue ifFalse: [ returnTypes setType: aClass. ].
+	returnTypes hasValue ifFalse: [
+		(aClass class == Metaclass and: aSelector == #new) ifTrue: [
+			returnTypes setType: aClass baseClass.
+		] ifFalse: [
+			returnTypes setType: aClass.
+		].
+	].

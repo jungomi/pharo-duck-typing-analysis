@@ -15,4 +15,4 @@ testHandleVariable
 	var := 'Object'.
 	helper cpa handleVariable: (helper parse: var).
 	self assert: helper cpa returnTypes hasValue.
-	self assert: helper cpa returnTypes types equals: (Set new add: Object; yourself).
+	self assert: helper cpa returnTypes types equals: (helper singletonSet: Object class).

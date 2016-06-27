@@ -2,8 +2,8 @@ handling
 handleVariable: aVariableNode
 	| variableName |
 	variableName := aVariableNode name.
-	variableName := variableName asClassIfAbsent: [
-		(self isVariableInScope: variableName) ifFalse: [ self newLocalVariable: variableName ].
-		^ returnTypes unset.
+	variableName asClassIfPresent: [ :cl |
+		^ returnTypes setType: cl class.
 	].
-	returnTypes setType: variableName.
+	(self isVariableInScope: variableName) ifFalse: [ self newLocalVariable: variableName ].
+	returnTypes unset.
