@@ -1,5 +1,6 @@
 processing
 processNode: aNode
+	returnTypes unset.
 	aNode class == RBBlockNode ifTrue: [ ^ self handleBlock: aNode ].
 	aNode class == RBLiteralValueNode ifTrue: [ self handleLiteral: aNode ].
 	aNode class == RBVariableNode ifTrue: [ self handleVariable: aNode ].
@@ -10,4 +11,4 @@ processNode: aNode
 	aNode class == RBSequenceNode ifTrue: [
 		aNode temporaries do: [ :each | self handleVariable: each ].
 	].
-	aNode statements do: [ :each | self processNode: each ].
+	aNode statements do: [ :each | self processNode: each. ].

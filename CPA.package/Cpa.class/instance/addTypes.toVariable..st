@@ -4,7 +4,7 @@ addTypes: aSet toVariable: aName
 
 	| typesDiff variable |
 	variable := self variableNodeByNameCreateIfAbsent: aName.
-	typesDiff := aSet difference: variable types.
+	typesDiff := aSet difference: variable values types.
 	typesDiff do: [ :each | variable addType: each ].
 	
 	^ typesDiff size

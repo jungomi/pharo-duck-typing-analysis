@@ -3,7 +3,6 @@ handleClass: aClass selector: aSelector superOf: anotherClass withArgs: anOrdere
 	"Handles a super call, this is only called when the (super) receiver has already been identified"
 
 	| receiver selector subClass |
-	self halt.
 	(self classMustBeIntercepted: aClass atSelector: aSelector) ifTrue: [
 		^ returnTypes setTypes: currentScope block valueTypes.
 	].

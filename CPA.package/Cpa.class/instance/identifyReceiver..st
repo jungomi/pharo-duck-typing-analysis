@@ -7,7 +7,7 @@ identifyReceiver: aNode
 	aNode class == RBVariableNode ifTrue: [
 		aNode name == #Smalltalk ifTrue: [ ^ receivers add: Smalltalk class; yourself ].
 		aNode name asClassIfPresent: [ :cl | ^ receivers add: cl class; yourself ].
-		^ (self variableNodeByNameCreateIfAbsent: aNode name) types.
+		^ (self variableNodeByNameCreateIfAbsent: aNode name) values types.
 	].
 	aNode class == RBMessageNode ifTrue: [
 		self handleMessage: aNode.

@@ -7,9 +7,11 @@
 		"addTypes:" : "MichaelJungo 6/4/2016 22:19",
 		"addUnknown" : "MichaelJungo 6/4/2016 22:30",
 		"copyReturnValues:" : "MichaelJungo 6/4/2016 21:14",
+		"difference:" : "MichaelJungo 6/28/2016 08:23",
 		"hasValue" : "MichaelJungo 6/27/2016 21:25",
 		"hasValue:" : "MichaelJungo 5/22/2016 11:23",
-		"initialize" : "MichaelJungo 6/4/2016 20:05",
+		"includes:" : "MichaelJungo 6/28/2016 08:37",
+		"initialize" : "MichaelJungo 6/28/2016 08:33",
 		"isIncomplete" : "MichaelJungo 6/4/2016 20:39",
 		"isIncomplete:" : "MichaelJungo 6/4/2016 20:42",
 		"isUnknown" : "MichaelJungo 6/4/2016 20:42",
@@ -20,7 +22,7 @@
 		"setIncompleteTypes:" : "MichaelJungo 6/4/2016 21:15",
 		"setType:" : "MichaelJungo 6/4/2016 21:09",
 		"setTypes:" : "MichaelJungo 6/4/2016 21:09",
-		"setUnknown" : "MichaelJungo 6/4/2016 21:09",
+		"setUnknown" : "MichaelJungo 6/28/2016 08:23",
 		"types" : "MichaelJungo 6/27/2016 21:07",
 		"types:" : "MichaelJungo 5/22/2016 11:24",
-		"unset" : "MichaelJungo 6/4/2016 21:09" } }
+		"unset" : "MichaelJungo 6/28/2016 08:23" } }

@@ -1,29 +1,12 @@
 handling
 handleAssignment: anAssignmentNode
-	| typesAdded typeSet rbValueNode rbVariableNode variableName |
-	rbValueNode := anAssignmentNode value.
-	rbVariableNode := anAssignmentNode variable.
-	rbValueNode class == RBVariableNode ifTrue: [ | cpaValueNode cpaVariableNode |
-		cpaValueNode := self variableNodeByNameCreateIfAbsent: rbValueNode name.
-		cpaVariableNode := self variableNodeByNameCreateIfAbsent: rbVariableNode name.
-		cpaValueNode addOutgoingNode: cpaVariableNode.
-		cpaVariableNode addIncomingNode: cpaValueNode.
-		typeSet := cpaValueNode types.
-	] ifFalse: [
-		rbValueNode class == RBLiteralValueNode ifTrue: [
-			typeSet := Set new add: rbValueNode value class; yourself.
-		] ifFalse: [
-			self processNode: rbValueNode.
-			(returnTypes hasValue and: returnTypes isUnknown not) ifTrue: [
-				typeSet := returnTypes types.
-			] ifFalse: [
-				typeSet := Set new.
-			].
-		].
-	].
-	variableName := rbVariableNode name.
-	typesAdded := self addTypes: typeSet toVariable: variableName.
+	| typesAdded variableName cpaVar |
+	self processNode: anAssignmentNode value.
+	variableName := anAssignmentNode variable name.
+	returnTypes hasValue ifFalse: [ returnTypes setUnknown. ].
+	typesAdded := self mergeTypes: returnTypes intoVariable: variableName.
+	cpaVar := self variableNodeByName: variableName.
 	typesAdded > 0 ifTrue: [
-		(self variableNodeByName: variableName) propagate.
+		cpaVar propagate.
 	].
-	returnTypes unset.
+	returnTypes copyReturnValues: cpaVar values.

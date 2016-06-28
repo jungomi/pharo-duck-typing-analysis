@@ -6,4 +6,4 @@ testHandleAssignmentVariable
 	helper cpa handleAssignment: (helper parse: assignment).
 	varNode := helper cpa variableNodeByName: 'variable'.
 	self deny: varNode isNil.
-	self assert: varNode types equals: helper types.
+	self assert: varNode values types equals: helper types.

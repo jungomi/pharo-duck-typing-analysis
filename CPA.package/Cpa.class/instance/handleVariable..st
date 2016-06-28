@@ -6,4 +6,4 @@ handleVariable: aVariableNode
 		^ returnTypes setType: cl class.
 	].
 	(self isVariableInScope: variableName) ifFalse: [ self newLocalVariable: variableName ].
-	returnTypes unset.
+	returnTypes copyReturnValues: (self variableNodeByName: variableName) values.

@@ -6,12 +6,12 @@ testHandleVariable
 	helper cpa handleVariable: (helper parse: var).
 	varNode := helper cpa variableNodeByName: var.
 	self assert: varNode class equals: CpaNode.
-	self assert: varNode types equals: helper types.
+	self assert: varNode values types equals: helper types.
 	var := 'unknownVariable'.
 	helper cpa handleVariable: (helper parse: var).
 	varNode := helper cpa variableNodeByName: var.
 	self assert: varNode class equals: CpaNode.
-	self assert: varNode types isEmpty.
+	self deny: varNode values hasValue.
 	var := 'Object'.
 	helper cpa handleVariable: (helper parse: var).
 	self assert: helper cpa returnTypes hasValue.

@@ -4,8 +4,16 @@ testHandleBlockLiteral
 	block := '[ 0 ]'.
 	helper cpa handleBlock: (helper parse: block).
 	self assert: helper cpa returnTypes hasValue.
-	self assert: helper cpa returnTypes types equals: (Set new add: 0 class; yourself).
+	self assert: helper cpa returnTypes types size equals: 1.
+	helper cpa returnTypes types do: [ :each |
+		self assert: each class equals: CpaBlock.
+		self assert: each valueTypes equals: (helper singletonSet: 0 class).
+	].
 	block := '[ 0. true ]'.
 	helper cpa handleBlock: (helper parse: block).
 	self assert: helper cpa returnTypes hasValue.
-	self assert: helper cpa returnTypes types equals: (Set new add: true class; yourself).
+	self assert: helper cpa returnTypes types size equals: 1.
+	helper cpa returnTypes types do: [ :each |
+		self assert: each class equals: CpaBlock.
+		self assert: each valueTypes equals: (helper singletonSet: true class).
+	].

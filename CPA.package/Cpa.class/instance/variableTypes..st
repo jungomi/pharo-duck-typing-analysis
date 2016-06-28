@@ -4,4 +4,4 @@ variableTypes: aName
 
 	| varNode |
 	varNode := self variableNodeByName: aName.
-	^ varNode ifNotNil: [ varNode types ].
+	^ varNode ifNotNil: [ varNode values types ].

@@ -1,7 +1,7 @@
 tests-accessing
 testVariableNodeByName
 	| instTypes var varNode |
-	instTypes := Set new add: ByteString; yourself.
+	instTypes := helper singletonSet: ByteString.
 	var := 'variable'.
 	helper cpa newScope: Cpa.
 	varNode := helper cpa variableNodeByName: var.
@@ -9,8 +9,8 @@ testVariableNodeByName
 	helper cpa addTypes: helper types toVariable: var.
 	varNode := helper cpa variableNodeByName: var.
 	self assert: varNode class equals: CpaNode.
-	self assert: varNode types equals: helper types.
+	self assert: varNode values types equals: helper types.
 	helper cpa addTypes: instTypes toInstanceVariable: var atClass: Cpa.
 	varNode := helper cpa variableNodeByName: var.
 	self assert: varNode class equals: CpaNode.
-	self assert: varNode types equals: instTypes.
+	self assert: varNode values types equals: instTypes.

@@ -8,7 +8,7 @@
 	"instvars" : [
 		"incomingNodes",
 		"outgoingNodes",
-		"types" ],
+		"values" ],
 	"name" : "CpaNode",
 	"pools" : [
 		 ],

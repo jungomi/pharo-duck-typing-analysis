@@ -1,8 +1,8 @@
 tests-adding
 testAddTypesToVariable
 	| types typesTwo numAdded var varNode |
-	types := Set new add: SmallInteger; yourself.
-	typesTwo := Set new add: Float; yourself.
+	types := helper singletonSet: SmallInteger.
+	typesTwo := helper singletonSet: Float.
 	var := 'variable'.
 	varNode := helper cpa variableNodeByName: var.
 	self assert: varNode equals: nil.
@@ -10,12 +10,12 @@ testAddTypesToVariable
 	self assert: numAdded equals: types size.
 	varNode := helper cpa variableNodeByName: var.
 	self assert: varNode class equals: CpaNode.
-	self assert: varNode types equals: types.
+	self assert: varNode values types equals: types.
 	numAdded := helper cpa addTypes: typesTwo toVariable: var.
 	self assert: numAdded equals: typesTwo size.
 	varNode := helper cpa variableNodeByName: var.
 	self assert: varNode class equals: CpaNode.
-	self assert: (varNode types includes: SmallInteger).
-	self assert: (varNode types includes: Float).
+	self assert: (varNode values includes: SmallInteger).
+	self assert: (varNode values includes: Float).
 	numAdded := helper cpa addTypes: typesTwo toVariable: var.
 	self assert: numAdded equals: 0.
