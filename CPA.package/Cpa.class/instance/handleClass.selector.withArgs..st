@@ -14,8 +14,11 @@ handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 	].
 	self addClassInstanceVariables: receiver.
 	receiver := Cpa class: receiver respondsTo: selector.
-	receiver ifNil: [ ^ returnTypes setUnknown ].
-	((aClass class == Metaclass and: selector == #initialize)
+	receiver ifNil: [
+		self methodFailed: true.
+		^ returnTypes setUnknown.
+	].
+	(((aClass class == Metaclass and: selector == #initialize) and: receiver == aClass baseClass)
 		or: (Cpa class: aClass hasMethod: selector)) ifTrue: [
 		self handleMethod: receiver>>selector withArgs: anOrderedCollection.
 	] ifFalse: [

@@ -12,7 +12,9 @@ handleBlock: aCpaBlock method: aMethod withArgs: anOrderedCollection
 		self newScope: aMethod ofBlock: aCpaBlock.
 		self createParameterVariables: temp withTypes: conc selectorTypes.
 		self processNode: (RBParser parseCompiledMethod: aMethod).
+		conc failed: methodFailed.
 		conc returnTypes copyReturnValues: currentScope returnTypes.
 		self upOneScope.
 	].
+	self methodFailed: conc failed.
 	returnTypes copyReturnValues: conc returnTypes.

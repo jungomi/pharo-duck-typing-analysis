@@ -7,3 +7,4 @@ initialize
 	returnTypes := CpaReturn new.
 	instanceVariableTypes := Dictionary new.
 	ducks := Set new.
+	methodFailed := false.

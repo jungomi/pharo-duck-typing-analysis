@@ -1,13 +1,13 @@
 identification
 identifyReceiver: aNode
-	"Returns a set containing the possible receivers"
+	"Returns a variable node if it's a variable, otherwise a set containing the possible receivers"
 	| receivers |
 	receivers := Set new.
 	aNode class == RBLiteralValueNode ifTrue: [ ^ receivers add: aNode value class; yourself ].
 	aNode class == RBVariableNode ifTrue: [
 		aNode name == #Smalltalk ifTrue: [ ^ receivers add: Smalltalk class; yourself ].
 		aNode name asClassIfPresent: [ :cl | ^ receivers add: cl class; yourself ].
-		^ (self variableNodeByNameCreateIfAbsent: aNode name) values types.
+		^ self variableNodeByNameCreateIfAbsent: aNode name.
 	].
 	aNode class == RBMessageNode ifTrue: [
 		self handleMessage: aNode.

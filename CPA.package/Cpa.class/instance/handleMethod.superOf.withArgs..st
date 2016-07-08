@@ -12,7 +12,9 @@ handleMethod: aMethod superOf: aClass withArgs: anOrderedCollection
 		self newScope: aMethod superOf: aClass.
 		self createParameterVariables: temp withTypes: conc selectorTypes.
 		self processNode: (RBParser parseCompiledMethod: aMethod).
+		conc failed: methodFailed.
 		conc returnTypes copyReturnValues: currentScope returnTypes.
 		self upOneScope.
 	].
+	self methodFailed: conc failed.
 	returnTypes copyReturnValues: conc returnTypes.

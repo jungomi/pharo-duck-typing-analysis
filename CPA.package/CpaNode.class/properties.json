@@ -8,7 +8,8 @@
 	"instvars" : [
 		"incomingNodes",
 		"outgoingNodes",
-		"values" ],
+		"values",
+		"ducks" ],
 	"name" : "CpaNode",
 	"pools" : [
 		 ],

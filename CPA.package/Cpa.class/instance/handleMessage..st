@@ -1,35 +1,47 @@
 handling
 handleMessage: aMessageNode
-	| receiver |
+	| receiver variable types duck oneSuccess |
+	variable := nil.
 	receiver := self identifyReceiver: aMessageNode receiver.
-	receiver isClass ifTrue: [
-		"NOTE: return types are implicitly passed along"
-		^ self handleClass: receiver selector: aMessageNode selector withArgs: aMessageNode arguments.
-	].
-	receiver class == Set ifTrue: [ | types duck |
-		types := CpaReturn new.
-		duck := CpaDuck new: aMessageNode selector.
-		receiver do: [ :each |
-			each class == CpaBlock ifTrue: [
-				self handleBlockReceiver: each withSelector: aMessageNode selector andArgs: aMessageNode arguments.
-			].
-			each == #super ifTrue: [ | superReceiver |
-				superReceiver := self identifySuperReceiver: aMessageNode selector.
-				superReceiver ifNotNil: [
-					self handleClass: superReceiver selector: aMessageNode selector
-						superOf: currentScope receiver withArgs: aMessageNode arguments.
-				].
-			].
-			each isClass ifTrue: [
-				self handleClass: each selector: aMessageNode selector withArgs: aMessageNode arguments.
-			].
-			duck addType: each.
-			types mergeReturnValues: returnTypes.
+	receiver class == CpaNode ifTrue: [
+		variable := receiver.
+		receiver := variable values types.
+		(variable values hasValue not or: variable values isUnknown) ifTrue: [
+			^ variable ducks setTypes: Set new.
 		].
-		duck numTypes > 1 ifTrue: [ self addDuck: duck. ].
-		^ returnTypes copyReturnValues: types.
+		variable ducks hasValue ifFalse: [
+			variable ducks setTypes: receiver copy.
+		].
 	].
-	"Is this case even possible? If it is then it will probably fail anyways"
-	receiver ifNotNil: [
-		self processNode: (RBParser parseCompiledMethod: receiver>>(aMessageNode selector)).
+	types := CpaReturn new.
+	duck := CpaDuck new: aMessageNode selector.
+	oneSuccess := false.
+	receiver do: [ :each |
+		self methodFailed: false.
+		each class == CpaBlock ifTrue: [
+			self handleBlockReceiver: each withSelector: aMessageNode selector
+				andArgs: aMessageNode arguments.
+		].
+		each == #super ifTrue: [ | superReceiver |
+			superReceiver := self identifySuperReceiver: aMessageNode selector.
+			superReceiver ifNotNil: [
+				self handleClass: superReceiver selector: aMessageNode selector
+					superOf: currentScope receiver withArgs: aMessageNode arguments.
+			].
+		].
+		each isClass ifTrue: [
+			self handleClass: each selector: aMessageNode selector
+				withArgs: aMessageNode arguments.
+		].
+		variable ifNotNil: [
+			(methodFailed and: (variable ducks types includes: each)) ifTrue: [
+				variable ducks types remove: each.
+			].
+		].
+		methodFailed ifFalse: [ oneSuccess := true ].
+		duck addType: each.
+		types mergeReturnValues: returnTypes.
 	].
+	duck numTypes > 1 ifTrue: [ self addDuck: duck. ].
+	self methodFailed: oneSuccess not.
+	^ returnTypes copyReturnValues: types.

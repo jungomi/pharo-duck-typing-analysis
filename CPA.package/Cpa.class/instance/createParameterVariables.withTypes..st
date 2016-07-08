@@ -6,6 +6,9 @@ createParameterVariables: aMethodTemplate withTypes: aDictionary
 		aMethodTemplate variables keysAndValuesDo: [ :selector :variable | | varNode types |
 			varNode := self newLocalVariable: variable.
 			types := aDictionary at: selector.
+			types class == CpaNode ifTrue: [
+				^ varNode values mergeReturnValues: types values.
+			].
 			types class == Set ifTrue: [
 				varNode addTypes: types
 			] ifFalse: [

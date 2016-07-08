@@ -11,7 +11,8 @@
 		"repository",
 		"returnTypes",
 		"instanceVariableTypes",
-		"ducks" ],
+		"ducks",
+		"methodFailed" ],
 	"name" : "Cpa",
 	"pools" : [
 		 ],

@@ -2,7 +2,9 @@
 	"class" : {
 		"new:" : "MichaelJungo 5/22/2016 17:40" },
 	"instance" : {
-		"initialize" : "MichaelJungo 6/4/2016 19:37",
+		"failed" : "MichaelJungo 7/8/2016 09:30",
+		"failed:" : "MichaelJungo 7/8/2016 09:30",
+		"initialize" : "MichaelJungo 7/8/2016 09:32",
 		"receiver" : "",
 		"returnTypes" : "",
 		"selector" : "",

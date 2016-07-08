@@ -19,5 +19,6 @@ testIdentifyArgumentTypes
 		helper cpa addTypes: varTypes toVariable: 'variable'.
 		result := helper cpa identifyArgumentTypes: args.
 		result at: 1 put: ((result at: 1) collect: [ :each | each class ]).
+		result at: 8 put: ((result at: 8) values types).
 		self assert: result equals: argTypes.
 	] ensure: [ helper deleteMocks ].

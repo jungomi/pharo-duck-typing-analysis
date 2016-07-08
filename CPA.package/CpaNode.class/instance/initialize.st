@@ -4,3 +4,4 @@ initialize
 	incomingNodes := Set new.
 	outgoingNodes := Set new.
 	values := CpaReturn new.
+	ducks := CpaReturn new.
