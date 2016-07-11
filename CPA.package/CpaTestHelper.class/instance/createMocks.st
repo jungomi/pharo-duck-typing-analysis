@@ -8,6 +8,7 @@ createMocks
 	mock compile: 'mySelfMethod ^ self myMethod'.
 	mock compile: 'myMethod: aClass withArg: aSelector ^ aClass new'.
 	mock compile: 'myMethodWithoutReturn instVar := 0'.
+	mock compile: 'methodSendingKey: anAssociation ^ anAssociation key'.
 	subMock := mock subclass: #TestSubClassMock instanceVariableNames: 'subInstVar'.
 	subSubMock := subMock subclass: #TestSubSubClassMock.
 	subSubMock compile: 'myMethod ^ super myMethod + 2'.

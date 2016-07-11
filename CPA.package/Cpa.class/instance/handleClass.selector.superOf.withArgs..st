@@ -9,7 +9,7 @@ handleClass: aClass selector: aSelector superOf: anotherClass withArgs: anOrdere
 	receiver := aClass.
 	selector := aSelector.
 	subClass := anotherClass.
-	(receiver class == Metaclass and: selector == #new) ifTrue: [
+	(receiver class == Metaclass and: (selector == #new or: selector == #basicNew)) ifTrue: [
 		(Cpa class: receiver hasMethod: selector) ifFalse: [
 			receiver := receiver baseClass.
 			selector := #initialize.

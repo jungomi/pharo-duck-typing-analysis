@@ -6,7 +6,7 @@ handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 	].
 	receiver := aClass.
 	selector := aSelector.
-	(receiver class == Metaclass and: selector == #new) ifTrue: [
+	(receiver class == Metaclass and: (selector == #new or: selector == #basicNew)) ifTrue: [
 		(Cpa class: receiver hasMethod: selector) ifFalse: [
 			receiver := receiver baseClass.
 			selector := #initialize.
@@ -25,7 +25,7 @@ handleClass: aClass selector: aSelector withArgs: anOrderedCollection
 		self handleMethod: receiver>>selector superOf: aClass withArgs: anOrderedCollection.
 	].
 	returnTypes hasValue ifFalse: [
-		(aClass class == Metaclass and: aSelector == #new) ifTrue: [
+		(aClass class == Metaclass and: (aSelector == #new or: aSelector == #basicNew)) ifTrue: [
 			returnTypes setType: aClass baseClass.
 		] ifFalse: [
 			returnTypes setType: aClass.

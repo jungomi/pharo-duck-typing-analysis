@@ -1,4 +1,4 @@
-as yet unclassified
+instance creation
 new: aClass
 	| temp |
 	temp := self new.

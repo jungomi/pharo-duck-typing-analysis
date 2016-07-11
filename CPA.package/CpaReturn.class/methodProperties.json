@@ -2,6 +2,7 @@
 	"class" : {
 		 },
 	"instance" : {
+		"=" : "MichaelJungo 7/10/2016 21:08",
 		"addIncompleteTypes:" : "MichaelJungo 6/4/2016 22:18",
 		"addType:" : "MichaelJungo 6/4/2016 22:19",
 		"addTypes:" : "MichaelJungo 7/8/2016 10:31",
@@ -10,8 +11,9 @@
 		"difference:" : "MichaelJungo 6/28/2016 08:23",
 		"hasValue" : "MichaelJungo 6/27/2016 21:25",
 		"hasValue:" : "MichaelJungo 5/22/2016 11:23",
+		"hash" : "MichaelJungo 7/10/2016 21:09",
 		"includes:" : "MichaelJungo 6/28/2016 08:37",
-		"initialize" : "MichaelJungo 6/28/2016 08:33",
+		"initialize" : "MichaelJungo 7/11/2016 01:38",
 		"isIncomplete" : "MichaelJungo 6/4/2016 20:39",
 		"isIncomplete:" : "MichaelJungo 6/4/2016 20:42",
 		"isUnknown" : "MichaelJungo 6/4/2016 20:42",

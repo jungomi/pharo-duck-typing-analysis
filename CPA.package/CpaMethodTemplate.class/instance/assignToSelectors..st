@@ -4,7 +4,7 @@ assignToSelectors: anOrderedCollection
 
 	| dict |
 	dict := Dictionary new.
-	((anOrderedCollection size ~= numArgs) or: (anOrderedCollection size == 0)) ifTrue: [ ^ nil ].
+	((anOrderedCollection size ~= numArgs) or: (anOrderedCollection isEmpty)) ifTrue: [ ^ nil ].
 	self splitSelector withIndexDo: [ :each :index |
 		dict at: each put: (anOrderedCollection at: index)
 	].

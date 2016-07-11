@@ -1,10 +1,10 @@
 {
 	"class" : {
 		"new:" : "MichaelJungo 6/13/2016 11:55",
-		"new:withSelector:" : "MichaelJungo 6/13/2016 11:55" },
+		"new:withSelector:" : "MichaelJungo 7/11/2016 02:30" },
 	"instance" : {
 		"addConcreteMethod:" : "MichaelJungo 6/4/2016 12:58",
-		"assignToSelectors:" : "MichaelJungo 6/4/2016 23:42",
+		"assignToSelectors:" : "MichaelJungo 7/11/2016 02:19",
 		"concreteMethodExists:" : "MichaelJungo 6/4/2016 23:43",
 		"concreteMethodWithArgs:" : "MichaelJungo 6/4/2016 23:43",
 		"concretes" : "MichaelJungo 6/27/2016 21:26",

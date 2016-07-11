@@ -1,12 +1,9 @@
-as yet unclassified
+instance creation
 new: aClass withSelector: aSelector
-	| temp |
+	| temp selectors |
 	temp := self new.
 	temp receiver: aClass.
 	temp selector: aSelector.
-	(aSelector matchesRegex: '.*\:') ifTrue: [
-		temp numArgs: (temp splitSelector size).
-	] ifFalse: [
-		temp numArgs: 0.
-	].
+	selectors := temp splitSelector.
+	temp numArgs: (selectors ifNil: [ 0 ] ifNotNil: [ selectors size ]).
 	^ temp
