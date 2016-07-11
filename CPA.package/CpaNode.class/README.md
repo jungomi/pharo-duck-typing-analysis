@@ -16,4 +16,5 @@ added to a node.
 
 - `incomingNodes: Set` - the nodes from which an incoming edge exists.
 - `outgoingNodes: Set` - the nodes to which an incoming edge exists.
-- `types: Set` - the types assigned to the variable.
+- `values: CpaReturn` - the types assigned to the variable.
+- `ducks: CpaReturn` - the potential duck types of the variable.

@@ -46,4 +46,6 @@ testMethod
     inheritance.
 - `subSubMock`: `TestSubSubClassMock` a subclass of `TestSubClassMock` to test
     further inheritance.
+- `otherMock`: `TestClassOtherMock` an class independent of `TestSubClassMock`
+    to test duck typing.
 - `types`: `Set` a Set containing the values `SmallInteger` and `Float`.

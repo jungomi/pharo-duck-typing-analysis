@@ -40,6 +40,32 @@ Cpa processExpression: '| duck |
 Cpa processMethod: CpaNode>>#propagate.
 ```
 
+### Public API and Key Messages
+
+- `variables` - returns a `Dictionary` containing all variables and their types
+    in the respective scope.
+- `variablesFromScopeWithId: Name` - returns a `Dictionary` containing all
+    variables in the scope with the given name.
+- `variablesWithName: Name` - returns a `Dictionary` containing the types of the
+    variable with the given name.
+- `ducks` - returns a `Dictionary` containing all duck types associated to the
+    variables.
+- `ducksFromScopeWithId: Name` - returns a `Dictionary` containing all duck
+    types in the scope with the given name.
+- `ducksOfVariable: Name` - returns a `Dictionary` containing the duck types of
+    the variable with the given name.
+
+### Instance Variables
+
+- `currentScope: CpaScope` - the current lexical scope.
+- `globalScope: CpaScope` - the global (top-level) lexical scope.
+- `instanceVariableTypes: Dictionary` - contains instance variables of the
+    analysed classes.
+- `repository: CpaMethodRepository` - holds a list of method templates.
+- `returnTypes: CpaReturn` - represents the current return value types.
+- `methodFailed: Boolean` - represents whether the most recent method failed.
+
+
 ### Implementation Details
 
 #### Scope
@@ -51,12 +77,12 @@ require additional informations:
 ##### Blocks
 
 A block creates a new scope where local variables follow the rules of the basic
-scope with the addition that self, super, instance variables and returns belong
-the enclosing method. This method is not necessarily the parent of the block, as
-it is possible to have nested blocks. Therefore it is needed to keep track of
-the enclosing method in the scope information. `CpaBlockScope` achieves this,
-allowing the identification of the correct receiver.  Blocks also have implicit
-returns, because return statements belong the enclosing method.
+scope with the addition that `self`, `super`, instance variables and returns
+belong the enclosing method. This method is not necessarily the parent of the
+block, as it is possible to have nested blocks. Therefore it is needed to keep
+track of the enclosing method in the scope information. `CpaBlockScope` achieves
+this, allowing the identification of the correct receiver.  Blocks also have
+implicit returns, because return statements belong the enclosing method.
 
 ##### Block Methods
 
@@ -71,18 +97,18 @@ replaced with the return values of the block.
 ##### Super Methods
 
 Methods of the superclasses can be called, either explicitly with the keyword
-super or implicitly when the method is not defined in the called class but in
+`super` or implicitly when the method is not defined in the called class but in
 one of its superclasses. These calls are similar to the block scoping
-differences, namely self, super and instance variables belong to the originally
-called class and not to the class where the method resides. For self and super
-it's essential to have this information to determine the correct (overridden)
-methods that need to be called. It is also needed to be able to tell which
-instance variables need to be modified. `CpaSuperMethodScope` provides those
-additional informations.
+differences, namely `self`, `super` and instance variables belong to the
+originally called class and not to the class where the method resides. For
+`self` and `super` it's essential to have this information to determine the
+correct (overridden) methods that need to be called. It is also needed to be
+able to tell which instance variables need to be modified. `CpaSuperMethodScope`
+provides those additional informations.
 
 #### Returns
 
-Return types of the last evaluated expression are stored in returnTypes of the
+Return types of the last evaluated expression are stored in `returnTypes` of the
 `Cpa` instance. As methods can have multiple return statements, it is required
 to to accumulate those types but allowing the `Cpa` instance to overwrite the
 return type of the last expression. For this purpose the return types of
@@ -97,3 +123,10 @@ return values are known and others unknown, these are marked as incomplete.
 
 Potential duck types are added when a variable holds multiple types which
 respond to the selector.
+
+##### Method Failure
+
+A method fails whenever there is no suitable receiver for a message within the
+method.The method analysis is not aborted at that point, but continues normally
+in order to collect as much type information as possible. Every duck type that
+failed a message with the variable as receiver, is removed.

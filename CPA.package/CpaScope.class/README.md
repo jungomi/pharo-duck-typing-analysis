@@ -16,5 +16,6 @@ There are some variations to `newChild` to add specific scopes.
 
 - `parent: CpaScope` - the parent scope.
 - `children: Set` - the child scopes.
+- `variables: Dictionaryt` - the dictionary containing the defined variabels.
 - `id: Name` - the name of the scope.
 - `returnTypes: Set` - the types of the return value.
