@@ -1,6 +1,6 @@
 handling
 handleMessage: aMessageNode
-	| receiver variable types duck oneSuccess |
+	| receiver variable types oneSuccess |
 	variable := nil.
 	receiver := self identifyReceiver: aMessageNode receiver.
 	receiver class == CpaNode ifTrue: [
@@ -10,11 +10,12 @@ handleMessage: aMessageNode
 			^ variable ducks setTypes: Set new.
 		].
 		variable ducks hasValue ifFalse: [
-			variable ducks setTypes: receiver copy.
+			receiver size < 2
+				ifTrue: [ variable ducks setTypes: Set new. ]
+				ifFalse: [ variable ducks setTypes: receiver copy. ].
 		].
 	].
 	types := CpaReturn new.
-	duck := CpaDuck new: aMessageNode selector.
 	oneSuccess := false.
 	receiver do: [ :each |
 		self methodFailed: false.
@@ -35,13 +36,17 @@ handleMessage: aMessageNode
 		].
 		variable ifNotNil: [
 			(methodFailed and: (variable ducks types includes: each)) ifTrue: [
-				variable ducks types remove: each.
+				variable ducks removeType: each.
+				variable ducks hasValue ifTrue: [
+					(variable ducks isUnknown
+						or: (variable ducks types size == 1 and: variable ducks isIncomplete not)) ifTrue: [
+							variable ducks setTypes: Set new.
+						].
+				] ifFalse: [ variable ducks setTypes: Set new. ].
 			].
 		].
 		methodFailed ifFalse: [ oneSuccess := true ].
-		duck addType: each.
 		types mergeReturnValues: returnTypes.
 	].
-	duck numTypes > 1 ifTrue: [ self addDuck: duck. ].
 	self methodFailed: oneSuccess not.
 	^ returnTypes copyReturnValues: types.

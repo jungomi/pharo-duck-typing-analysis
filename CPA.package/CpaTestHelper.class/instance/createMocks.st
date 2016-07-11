@@ -12,3 +12,5 @@ createMocks
 	subMock := mock subclass: #TestSubClassMock instanceVariableNames: 'subInstVar'.
 	subSubMock := subMock subclass: #TestSubSubClassMock.
 	subSubMock compile: 'myMethod ^ super myMethod + 2'.
+	otherMock := Object subclass: #TestClassOtherMock.
+	otherMock compile: 'myMethod ^ 5'.

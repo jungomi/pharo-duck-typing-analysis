@@ -6,5 +6,4 @@ initialize
 	repository := CpaMethodRepository new.
 	returnTypes := CpaReturn new.
 	instanceVariableTypes := Dictionary new.
-	ducks := Set new.
 	methodFailed := false.

@@ -7,6 +7,7 @@
 		"testAddTypesToInstanceVariableAtClass" : "MichaelJungo 6/28/2016 08:37",
 		"testAddTypesToVariable" : "MichaelJungo 6/28/2016 08:37",
 		"testClassMustBeInterceptedAtSelector" : "MichaelJungo 6/12/2016 11:27",
+		"testDucks" : "MichaelJungo 7/11/2016 10:40",
 		"testHandleAssignment" : "MichaelJungo 6/12/2016 14:28",
 		"testHandleAssignmentLiteral" : "MichaelJungo 6/28/2016 08:42",
 		"testHandleAssignmentUnknown" : "MichaelJungo 6/28/2016 10:13",
@@ -46,4 +47,7 @@
 		"testUpOneScope" : "MichaelJungo 6/12/2016 11:15",
 		"testVariableNodeByName" : "MichaelJungo 6/28/2016 09:07",
 		"testVariableNodeByNameCreateIfAbsent" : "MichaelJungo 6/28/2016 09:06",
-		"testVariableTypes" : "MichaelJungo 6/12/2016 16:06" } }
+		"testVariableTypes" : "MichaelJungo 6/12/2016 16:06",
+		"testVariables" : "MichaelJungo 7/11/2016 10:19",
+		"testVariablesFromScopeWithId" : "MichaelJungo 7/11/2016 10:29",
+		"testVariablesWithName" : "MichaelJungo 7/11/2016 10:36" } }

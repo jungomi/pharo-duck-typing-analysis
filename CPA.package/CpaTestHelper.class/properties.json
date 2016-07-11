@@ -10,6 +10,7 @@
 		"mock",
 		"subMock",
 		"subSubMock",
+		"otherMock",
 		"types" ],
 	"name" : "CpaTestHelper",
 	"pools" : [
