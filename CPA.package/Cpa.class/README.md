@@ -24,16 +24,22 @@ cpa processNode: testNode.
 ```
 
 Alternatively the class methods `Cpa>>#processExpression:` and
-`Cpa>>#processMethod:` can be used to pass a string or a method that will be
-analysed, returning the resulting `Cpa` instance.
+`Cpa>>#processMethod:` or the equivalent instance methods can be used to pass
+a string or a method that will be analysed. The class methods return a new `Cpa`
+instance whereas the instance methods simply add the results to the existing
+instance.
 
 ```smalltalk
-Cpa processExpression: '| duck |
+| cpa cpa2 |
+cpa := Cpa processExpression: '| duck |
   duck := Dictionary new.
   duck := Set new.
   duck add: Object'.
 
-Cpa processMethod: CpaNode>>#propagate.
+"New instance"
+cpa2 := Cpa processMethod: CpaNode>>#propagate.
+"Adding to the existing instance"
+cpa processMethod: CpaNode>>#propagate.
 ```
 
 ## Public API and Key Messages
