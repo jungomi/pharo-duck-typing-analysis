@@ -1,9 +1,13 @@
 instance creation
 new: aClass withSelector: aSelector
-	| temp selectors |
+	| temp |
 	temp := self new.
 	temp receiver: aClass.
 	temp selector: aSelector.
-	selectors := temp splitSelector.
-	temp numArgs: (selectors ifNil: [ 0 ] ifNotNil: [ selectors size ]).
+	"This does not work properly for operators (e.g. ->, +) but gives a good default"
+	(aSelector matchesRegex: '.*\:') ifTrue: [
+		temp numArgs: temp splitSelector size.
+	] ifFalse: [
+		temp numArgs: 0.
+	].
 	^ temp

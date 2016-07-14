@@ -8,6 +8,7 @@
 		"testAddTypesToVariable" : "MichaelJungo 6/28/2016 08:37",
 		"testClassMustBeInterceptedAtSelector" : "MichaelJungo 6/12/2016 11:27",
 		"testDucks" : "MichaelJungo 7/11/2016 10:40",
+		"testDucksOverwridden" : "MichaelJungo 7/14/2016 10:40",
 		"testHandleAssignment" : "MichaelJungo 6/12/2016 14:28",
 		"testHandleAssignmentLiteral" : "MichaelJungo 6/28/2016 08:42",
 		"testHandleAssignmentUnknown" : "MichaelJungo 6/28/2016 10:13",

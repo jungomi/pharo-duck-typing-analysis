@@ -10,7 +10,7 @@ ducksFromScopeWithId: aName
 		currScope children do: [ :each | scopes push: each ].
 		currScope id = aName ifTrue: [
 			currScope variables keysAndValuesDo: [ :name :variable | | duck |
-				duck := variable ducks asSet.
+				duck := Cpa removeSubclasses: variable ducks asSet.
 				duck size > 1 ifTrue: [
 					dict at: name put: duck.
 				].

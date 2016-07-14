@@ -10,7 +10,7 @@ ducks
 		currScope := scopes pop.
 		currScope children do: [ :each | scopes push: each ].
 		currScope variables keysAndValuesDo: [ :name :variable | | duck |
-			duck := variable ducks asSet.
+			duck := Cpa removeSubclasses: variable ducks asSet.
 			duck size > 1 ifTrue: [
 				(dict at: name ifAbsentPut: Dictionary new) at: currScope id put: duck.
 			].

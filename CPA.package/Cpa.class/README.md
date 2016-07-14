@@ -5,7 +5,7 @@ Product Algorithm (CPA). It parses the AST of the code that is being analysed
 and tries to infer the types of the variables, the return types of the methods
 and additionally also potential duck types that are used within the code.
 
-### Examples
+## Examples
 
 The analysis starts in `Cpa>>#processNode:` which takes an AST node as input,
 that can be parsed with the `RBParser` class.
@@ -36,7 +36,7 @@ Cpa processExpression: '| duck |
 Cpa processMethod: CpaNode>>#propagate.
 ```
 
-### Public API and Key Messages
+## Public API and Key Messages
 
 - `variables` - returns a `Dictionary` containing all variables and their types
     in the respective scope.
@@ -51,7 +51,7 @@ Cpa processMethod: CpaNode>>#propagate.
 - `ducksOfVariable: Name` - returns a `Dictionary` containing the duck types of
     the variable with the given name.
 
-### Instance Variables
+## Instance Variables
 
 - `currentScope: CpaScope` - the current lexical scope.
 - `globalScope: CpaScope` - the global (top-level) lexical scope.
@@ -62,15 +62,15 @@ Cpa processMethod: CpaNode>>#propagate.
 - `methodFailed: Boolean` - represents whether the most recent method failed.
 
 
-### Implementation Details
+## Implementation Details
 
-#### Scope
+### Scope
 
 Every method creates a new scope as a child of the currently active scope
 (starting with the global scope), building a tree. There are a few cases that
 require additional informations:
 
-##### Blocks
+### Blocks
 
 A block creates a new scope where local variables follow the rules of the basic
 scope with the addition that `self`, `super`, instance variables and returns
@@ -80,7 +80,7 @@ track of the enclosing method in the scope information. `CpaBlockScope` achieves
 this, allowing the identification of the correct receiver.  Blocks also have
 implicit returns, because return statements belong the enclosing method.
 
-##### Block Methods
+### Block Methods
 
 The values of blocks can be accessed with the method value (i.e.
 `BlockClosure>>#value`), which is implemented using a primitive.  In order to
@@ -90,7 +90,7 @@ scope (`CpaBlockMethodScope`) which enables the possibility to detect whether
 the selector #value corresponds to a block and needs to be intercepted and
 replaced with the return values of the block.
 
-##### Super Methods
+### Super Methods
 
 Methods of the superclasses can be called, either explicitly with the keyword
 `super` or implicitly when the method is not defined in the called class but in
@@ -102,7 +102,7 @@ correct (overridden) methods that need to be called. It is also needed to be
 able to tell which instance variables need to be modified. `CpaSuperMethodScope`
 provides those additional informations.
 
-#### Returns
+### Returns
 
 Return types of the last evaluated expression are stored in `returnTypes` of the
 `Cpa` instance. As methods can have multiple return statements, it is required
@@ -115,12 +115,12 @@ A return value may be unknown due to limited access to the code
 passed parameters). Multiple return statements also add the fact that some
 return values are known and others unknown, these are marked as incomplete.
 
-#### Duck Types
+### Duck Types
 
 Potential duck types are added when a variable holds multiple types which
 respond to the selector.
 
-##### Method Failure
+#### Method Failure
 
 A method fails whenever there is no suitable receiver for a message within the
 method.The method analysis is not aborted at that point, but continues normally

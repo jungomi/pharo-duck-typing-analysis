@@ -2,6 +2,8 @@
 	"class" : {
 		"new:" : "MichaelJungo 6/7/2016 09:37" },
 	"instance" : {
+		"asDict" : "MichaelJungo 7/12/2016 01:53",
+		"initialize" : "MichaelJungo 7/12/2016 01:52",
 		"receiver" : "",
 		"valueTypes" : "MichaelJungo 6/27/2016 21:07",
 		"valueTypes:" : "MichaelJungo 6/7/2016 09:03" } }

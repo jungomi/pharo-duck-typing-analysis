@@ -1,4 +1,4 @@
-as yet unclassified
+converting
 asSet
 	"Creates a Set representing the values, #unknown is signifies that at least one type is unknown"
 	
